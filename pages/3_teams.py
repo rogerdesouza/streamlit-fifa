@@ -18,4 +18,10 @@ st.markdown(f"## {club}")
 
 columns = ["Age", "Photo", "Flag", "Overall", "Value", "Wage", "Height", "Weight"]
 
-st.dataframe(df_filtered[columns])
+st.dataframe(df_filtered[columns], column_config={
+    "Overall": st.column_config.ProgressColumn("Overall", format="%d", min_value=0, max_value=100),
+    "Photo": st.column_config.ImageColumn(width=10),
+    "Flag": st.column_config.ImageColumn("Country", width=10),
+    "Age": st.column_config.Column(width=10),
+}, height=600, width=1500)
+
